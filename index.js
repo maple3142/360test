@@ -21,17 +21,15 @@ let id = 0
 const MXID = 2
 
 const div = document.createElement('div')
-div.innerHTML = `
-<button id="prev">PREV</button>
-<button id="next">NEXT</button>
-`
 div.style.position = 'absolute'
 div.style.top = '0px'
 div.style.left = '0px'
 div.style.zIndex = 10000
 document.body.appendChild(div)
-const prev = document.querySelector('#prev')
-const next = document.querySelector('#next')
+const prev = document.createElement('button')
+prev.textContent='prev'
+const next = document.createElement('button')
+next.textContent='next'
 prev.addEventListener('click', () => {
 	id--
 	if (id < 0) id = MXID
@@ -42,4 +40,6 @@ next.addEventListener('click', () => {
 	if (id > MXID) id = 0
 	loadImg(id)
 })
+div.appendChild(prev)
+div.appendChild(next)
 loadImg(id)
