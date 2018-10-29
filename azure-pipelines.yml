@@ -7,5 +7,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- script: yarn build
+- script: |
+    yarn
+    yarn build
   displayName: Build
